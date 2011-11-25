@@ -466,7 +466,7 @@ public abstract class gUnitBaseTest extends TestCase {
 	// Modify the return value if the expected token type is OK or FAIL
 	public Object examineExecResult(int tokenType, Object retVal) {	
 		if ( tokenType==gUnitParser.OK ) {	// expected Token: OK
-			if ( this.stderr==null ) {
+			if ( this.stderr==null || this.stderr.equals("")) {
 				return "OK";
 			}
 			else {
@@ -474,7 +474,7 @@ public abstract class gUnitBaseTest extends TestCase {
 			}
 		}
 		else if ( tokenType==gUnitParser.FAIL ) {	// expected Token: FAIL
-			if ( this.stderr!=null ) {
+			if ( this.stderr!=null || !this.stderr.equals("")) {
 				return "FAIL";
 			}
 			else {
